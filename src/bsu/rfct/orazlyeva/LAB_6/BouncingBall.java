@@ -3,6 +3,7 @@ package bsu.rfct.orazlyeva.LAB_6;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Point2D;
 public class BouncingBall implements Runnable {
     // Максимальный радиус, который может иметь мяч
     private static final int MAX_RADIUS = 40;
@@ -20,7 +21,6 @@ public class BouncingBall implements Runnable {
     private int speed;
     private double speedX;
     private double speedY;
-
     public int getIDofBall() {
         return radius;
     }
@@ -28,7 +28,6 @@ public class BouncingBall implements Runnable {
     public BouncingBall(Field field) {
 // Необходимо иметь ссылку на поле, по которому прыгает мяч,
 // чтобы отслеживать выход за его пределы
-
 // через getWidth(), getHeight()
         this.field = field;
 // Радиус мяча случайного размера
@@ -118,5 +117,7 @@ public class BouncingBall implements Runnable {
 
         canvas.draw(ball);
         canvas.fill(ball);
+        canvas.setColor(Color.BLACK);
+        canvas.drawString(String.valueOf(radius),(float)(x + radius) ,(float)(y + radius));
     }
 }
